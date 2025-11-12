@@ -35,7 +35,7 @@ export default function Header() {
           <div className="md:hidden py-4 space-y-4">
             <a href="#features" className="block text-gray-700 hover:text-blue-600 transition-colors">功能特性</a>
             <a href="#resources" className="block text-gray-700 hover:text-blue-600 transition-colors">学习资源</a>
-            <a href="#projects" className="block text-gray-700 hover:text-blue-600 transition-colors">社区项目</a>
+            <a href="#projects" className="block text-gray-700 hover:text-blue-600 transition-colors">案例项目</a>
             <a href="#faq" className="block text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
             <button className="w-full bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
               开始使用

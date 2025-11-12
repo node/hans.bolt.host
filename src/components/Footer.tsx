@@ -101,7 +101,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">公司</h3>
+            <h3 className="text-white font-semibold mb-4">关于</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>

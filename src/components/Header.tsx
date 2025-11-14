@@ -19,7 +19,7 @@ export default function Header() {
             <a href="#projects" className="text-gray-700 hover:text-blue-600 transition-colors">社区项目</a>
             <a href="#faq" className="text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
             <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-              开始使用
+              <a href="https://bolt.new">开始使用</a>
             </button>
           </div>
 

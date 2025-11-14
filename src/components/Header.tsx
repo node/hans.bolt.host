@@ -1,26 +1,47 @@
 import { Zap, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-export default function Header() {
+interface HeaderProps {
+  currentPage?: 'home' | 'guide';
+}
+
+export default function Header({ currentPage = 'home' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2">
+          <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
             <Zap className="w-8 h-8 text-blue-600" fill="currentColor" />
             <span className="text-xl font-bold text-gray-900">Bolt.new 中文社区</span>
-          </div>
+          </a>
 
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">功能特性</a>
-            <a href="#resources" className="text-gray-700 hover:text-blue-600 transition-colors">学习资源</a>
-            <a href="#projects" className="text-gray-700 hover:text-blue-600 transition-colors">社区项目</a>
-            <a href="#faq" className="text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-              <a href="https://bolt.new">开始使用</a>
-            </button>
+            {location.pathname === '/' ? (
+              <>
+                <a href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">功能特性</a>
+                <a href="/guide" className="text-gray-700 hover:text-blue-600 transition-colors">入门指南</a>
+                <a href="#resources" className="text-gray-700 hover:text-blue-600 transition-colors">学习资源</a>
+                <a href="#projects" className="text-gray-700 hover:text-blue-600 transition-colors">社区项目</a>
+                <a href="#faq" className="text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
+              </>
+            ) : (
+              <>
+                <a href="/" className="text-gray-700 hover:text-blue-600 transition-colors">首页</a>
+                <a href="/guide" className="text-gray-700 hover:text-blue-600 transition-colors font-semibold text-blue-600">入门指南</a>
+              </>
+            )}
+            <a
+              href="https://bolt.new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              开始使用
+            </a>
           </div>
 
           <button
@@ -33,13 +54,28 @@ export default function Header() {
 
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <a href="#features" className="block text-gray-700 hover:text-blue-600 transition-colors">功能特性</a>
-            <a href="#resources" className="block text-gray-700 hover:text-blue-600 transition-colors">学习资源</a>
-            <a href="#projects" className="block text-gray-700 hover:text-blue-600 transition-colors">案例项目</a>
-            <a href="#faq" className="block text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
-            <button className="w-full bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+            {location.pathname === '/' ? (
+              <>
+                <a href="#features" className="block text-gray-700 hover:text-blue-600 transition-colors">功能特性</a>
+                <a href="/guide" className="block text-gray-700 hover:text-blue-600 transition-colors">入门指南</a>
+                <a href="#resources" className="block text-gray-700 hover:text-blue-600 transition-colors">学习资源</a>
+                <a href="#projects" className="block text-gray-700 hover:text-blue-600 transition-colors">社区项目</a>
+                <a href="#faq" className="block text-gray-700 hover:text-blue-600 transition-colors">常见问题</a>
+              </>
+            ) : (
+              <>
+                <a href="/" className="block text-gray-700 hover:text-blue-600 transition-colors">首页</a>
+                <a href="/guide" className="block text-gray-700 hover:text-blue-600 transition-colors font-semibold text-blue-600">入门指南</a>
+              </>
+            )}
+            <a
+              href="https://bolt.new"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium text-center"
+            >
               开始使用
-            </button>
+            </a>
           </div>
         )}
       </nav>
